@@ -1,2 +1,6 @@
+### Version 0.0.2
+change：add embed tomcat
+test with: http://localhost:8080/hello
+
 ### Version 0.0.1
 change：init spring boot demo

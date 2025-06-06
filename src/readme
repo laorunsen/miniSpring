@@ -13,3 +13,11 @@ springboot的细节， 比如如何关闭spring security，  springmvc的流程�
 步骤4， 再上面基础上， 按liaoxuefeng大神的文章，搞好ioc、aop、boot等等！
 步骤5， 看AI的建议， 慢慢加以优化！！！
 
+
+常用命令
+mvn clean package
+mvn exec:java
+
+### mvn compile
+### mvn spring-boot:run
+
