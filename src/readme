@@ -1,0 +1,15 @@
+到外资银行面试java， 30分钟做题加30分钟技术面， 做题满分， 技术面一直是
+springboot的细节， 比如如何关闭spring security，  springmvc的流程等等
+虽然用过springboot，但没有了解这么细！！！ 毫无疑问 failed掉面试！！！
+痛定思痛， 决定参考大神们的文章， 也来个手写spring！！！
+
+参考1 https://www.cnblogs.com/gupaoedu-tom/p/15748890.html   tom大神300行代码简单模仿spring mvc
+参考2 https://liaoxuefeng.com/books/summerframework/introduction/index.html  liaoxuefeng大神手写spring
+参考3 AI 如豆包、chatgpt、deepseek 辅助修改bug和给出优化建议
+
+步骤1， 从官方下载spring demo， 对应java17， 能不能跑没所谓， 作为起点。并写好readme！
+步骤2， 借助AI， 自己仿造spring boot，搞个内嵌tomcat 容器， 能用浏览器访问！
+步骤3， 手工把tom大神300行代码抄写过来，跑通
+步骤4， 再上面基础上， 按liaoxuefeng大神的文章，搞好ioc、aop、boot等等！
+步骤5， 看AI的建议， 慢慢加以优化！！！
+
