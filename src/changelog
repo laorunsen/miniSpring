@@ -1,3 +1,8 @@
+### Version 0.0.3
+change：build a toy spring mvc
+        replace HelloServlet.java by GPDispatcherServlet.java
+test with: http://localhost:8080/demo/query?name=tom
+
 ### Version 0.0.2
 change：add embed tomcat
 test with: http://localhost:8080/hello

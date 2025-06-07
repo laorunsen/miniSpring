@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import org.apache.catalina.Context;
+import org.apache.catalina.Wrapper;
 import org.apache.catalina.startup.Tomcat;
 import java.io.File;
 
@@ -19,11 +20,12 @@ public class Application {
         Context context = tomcat.addContext(contextPath, docBase);
 
 		// 注册 Servlet
-		Tomcat.addServlet(context, "helloServlet", new HelloServlet());
-		context.addServletMappingDecoded("/hello", "helloServlet");
+		Wrapper wrapper = Tomcat.addServlet(context, "gpDispatcherServlet", new GPDispatcherServlet());
+		wrapper.addInitParameter("contextConfigLocation", "application.properties");
+		context.addServletMappingDecoded("/", "gpDispatcherServlet");
 
 		tomcat.start();
-		System.out.println("Mini Spring Boot started at http://localhost:8080/hello");
+		System.out.println("Mini Spring Boot started at http://localhost:8080/");
 		tomcat.getServer().await();
 	}
 
