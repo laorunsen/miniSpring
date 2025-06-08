@@ -8,11 +8,11 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.util.*;
 
-import com.minispring.web.annotation.GPAutowired;
-import com.minispring.web.annotation.GPController;
-import com.minispring.web.annotation.GPRequestMapping;
-import com.minispring.web.annotation.GPRequestParam;
-import com.minispring.web.annotation.GPService;
+import com.minispring.web.annotation.Autowired;
+import com.minispring.web.annotation.Controller;
+import com.minispring.web.annotation.RequestMapping;
+import com.minispring.web.annotation.RequestParam;
+import com.minispring.web.annotation.Service;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -22,7 +22,7 @@ import java.lang.reflect.Method;
 import java.net.URL;
 import java.io.File;
 
-public class GPDispatcherServlet extends HttpServlet {
+public class DispatcherServlet extends HttpServlet {
     private Properties contextConfig = new Properties();
     private List<String> classNames = new ArrayList<String>();
     private Map<String, Object> ioc = new HashMap<String, Object>();
@@ -75,8 +75,8 @@ public class GPDispatcherServlet extends HttpServlet {
             }
 
             for (Annotation annotation : paramAnnotations[i]) {
-                if (annotation instanceof GPRequestParam) {
-                    String paramName = ((GPRequestParam) annotation).value();
+                if (annotation instanceof RequestParam) {
+                    String paramName = ((RequestParam) annotation).value();
                     String[] values = parameterMap.get(paramName);
 
                     if (values != null && values.length > 0) {
@@ -144,10 +144,10 @@ public class GPDispatcherServlet extends HttpServlet {
         for (Map.Entry<String, Object> entry : ioc.entrySet()) {
             Field[] fields = entry.getValue().getClass().getDeclaredFields();
             for (Field field : fields) {
-                if (!field.isAnnotationPresent(GPAutowired.class)) {
+                if (!field.isAnnotationPresent(Autowired.class)) {
                     continue;
                 }
-                GPAutowired autowired = field.getAnnotation(GPAutowired.class);
+                Autowired autowired = field.getAnnotation(Autowired.class);
                 String beanName = autowired.value().trim();
                 if ("".equals(beanName)) {
                     beanName = field.getType().getName();
@@ -166,18 +166,18 @@ public class GPDispatcherServlet extends HttpServlet {
         for (Map.Entry<String, Object> entry : ioc.entrySet()) {
             Class<?> clazz = entry.getValue().getClass();
 
-            if(!clazz.isAnnotationPresent(GPController.class)){continue;}
+            if(!clazz.isAnnotationPresent(Controller.class)){continue;}
 
             String baseUrl = "";
-            if(clazz.isAnnotationPresent(GPRequestMapping.class)){
-                GPRequestMapping requestMapping = clazz.getAnnotation(GPRequestMapping.class);
+            if(clazz.isAnnotationPresent(RequestMapping.class)){
+                RequestMapping requestMapping = clazz.getAnnotation(RequestMapping.class);
                 baseUrl = requestMapping.value();
             }
 
             for (Method method : clazz.getMethods()) {
-                if(!method.isAnnotationPresent(GPRequestMapping.class)){continue;}
+                if(!method.isAnnotationPresent(RequestMapping.class)){continue;}
 
-                GPRequestMapping requestMapping = method.getAnnotation(GPRequestMapping.class);
+                RequestMapping requestMapping = method.getAnnotation(RequestMapping.class);
                 String url = ("/" + baseUrl + "/" + requestMapping.value())
                             .replaceAll("/+","/");
                 handlerMapping.put(url,method);
@@ -206,12 +206,12 @@ public class GPDispatcherServlet extends HttpServlet {
             for (String className : this.classNames) {
                 Class<?> clazz = Class.forName(className);
                 // controller 
-                if (clazz.isAnnotationPresent(GPController.class)) {
+                if (clazz.isAnnotationPresent(Controller.class)) {
                     Object instance = clazz.getDeclaredConstructor().newInstance();
                     String beanName = toLowerFirstCase(clazz.getSimpleName());
                     ioc.put(beanName, instance);
-                } else if (clazz.isAnnotationPresent(GPService.class)) {
-                    GPService service = clazz.getAnnotation(GPService.class);
+                } else if (clazz.isAnnotationPresent(Service.class)) {
+                    Service service = clazz.getAnnotation(Service.class);
                     String beanName = service.value();
                     if ("".equals(beanName)) {
                        beanName = toLowerFirstCase(clazz.getSimpleName());

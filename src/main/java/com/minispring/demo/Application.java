@@ -4,7 +4,7 @@ import org.apache.catalina.Context;
 import org.apache.catalina.Wrapper;
 import org.apache.catalina.startup.Tomcat;
 
-import com.minispring.web.GPDispatcherServlet;
+import com.minispring.web.DispatcherServlet;
 
 import java.io.File;
 
@@ -23,9 +23,9 @@ public class Application {
         Context context = tomcat.addContext(contextPath, docBase);
 
 		// 注册 Servlet
-		Wrapper wrapper = Tomcat.addServlet(context, "gpDispatcherServlet", new GPDispatcherServlet());
+		Wrapper wrapper = Tomcat.addServlet(context, "dispatcherServlet", new DispatcherServlet());
 		wrapper.addInitParameter("contextConfigLocation", "application.properties");
-		context.addServletMappingDecoded("/", "gpDispatcherServlet");
+		context.addServletMappingDecoded("/", "dispatcherServlet");
 
 		tomcat.start();
 		System.out.println("Mini Spring Boot started at http://localhost:8080/");

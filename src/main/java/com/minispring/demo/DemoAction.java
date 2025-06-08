@@ -2,21 +2,21 @@ package com.minispring.demo;
 
 import java.io.IOException;
 
-import com.minispring.web.annotation.GPAutowired;
-import com.minispring.web.annotation.GPController;
-import com.minispring.web.annotation.GPRequestMapping;
-import com.minispring.web.annotation.GPRequestParam;
+import com.minispring.web.annotation.Autowired;
+import com.minispring.web.annotation.Controller;
+import com.minispring.web.annotation.RequestMapping;
+import com.minispring.web.annotation.RequestParam;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@GPController
-@GPRequestMapping("/demo")
+@Controller
+@RequestMapping("/demo")
 public class DemoAction {
-   @GPAutowired private IDemoService demoService;
-   @GPRequestMapping("/query")
+   @Autowired private IDemoService demoService;
+   @RequestMapping("/query")
    public void query(HttpServletRequest req, HttpServletResponse resp,
-                 @GPRequestParam("name") String name){
+                 @RequestParam("name") String name){
       String result = demoService.get(name);
       System.out.println(result);
       try {
@@ -25,17 +25,17 @@ public class DemoAction {
          e.printStackTrace();
       }
    }
-   @GPRequestMapping("/add")
+   @RequestMapping("/add")
    public void add(HttpServletRequest req, HttpServletResponse resp,
-               @GPRequestParam("a") Integer a, @GPRequestParam("b") Integer b){
+               @RequestParam("a") Integer a, @RequestParam("b") Integer b){
       try {
          resp.getWriter().write(a + "+" + b + "=" + (a + b));
       } catch (IOException e) {
          e.printStackTrace();
       }
    }
-   @GPRequestMapping("/remove")
+   @RequestMapping("/remove")
    public void remove(HttpServletRequest req,HttpServletResponse resp,
-                  @GPRequestParam("id") Integer id){
+                  @RequestParam("id") Integer id){
    }
 }
