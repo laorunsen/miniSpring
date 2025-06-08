@@ -1,6 +1,6 @@
-package com.example.demo;
+package com.minispring.demo;
 
-import com.example.web.annotation.GPService;
+import com.minispring.web.annotation.GPService;
 
 /**
  * 核心业务逻辑

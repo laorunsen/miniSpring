@@ -1,10 +1,4 @@
-package com.example.web;
-
-import com.example.web.annotation.GPService;
-import com.example.web.annotation.GPAutowired;
-import com.example.web.annotation.GPController;
-import com.example.web.annotation.GPRequestMapping;
-import com.example.web.annotation.GPRequestParam;
+package com.minispring.web;
 
 import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
@@ -13,6 +7,13 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.util.*;
+
+import com.minispring.web.annotation.GPAutowired;
+import com.minispring.web.annotation.GPController;
+import com.minispring.web.annotation.GPRequestMapping;
+import com.minispring.web.annotation.GPRequestParam;
+import com.minispring.web.annotation.GPService;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.annotation.Annotation;

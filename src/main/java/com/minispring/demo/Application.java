@@ -1,10 +1,10 @@
-package com.example.demo;
+package com.minispring.demo;
 
 import org.apache.catalina.Context;
 import org.apache.catalina.Wrapper;
 import org.apache.catalina.startup.Tomcat;
 
-import com.example.web.GPDispatcherServlet;
+import com.minispring.web.GPDispatcherServlet;
 
 import java.io.File;
 

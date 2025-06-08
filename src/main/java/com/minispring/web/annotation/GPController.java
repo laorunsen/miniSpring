@@ -1,4 +1,4 @@
-package com.example.web.annotation;
+package com.minispring.web.annotation;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

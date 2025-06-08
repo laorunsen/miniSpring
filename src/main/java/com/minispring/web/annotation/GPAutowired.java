@@ -1,10 +1,9 @@
-package com.example.web.annotation;
+package com.minispring.web.annotation;
 
 import java.lang.annotation.*;
-
-@Target({ElementType.PARAMETER})
+@Target({ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-public @interface GPRequestParam {
+public @interface GPAutowired {
     String value() default "";
 }

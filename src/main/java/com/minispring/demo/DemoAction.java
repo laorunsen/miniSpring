@@ -1,12 +1,14 @@
-package com.example.demo;
+package com.minispring.demo;
 
 import java.io.IOException;
+
+import com.minispring.web.annotation.GPAutowired;
+import com.minispring.web.annotation.GPController;
+import com.minispring.web.annotation.GPRequestMapping;
+import com.minispring.web.annotation.GPRequestParam;
+
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import com.example.web.annotation.GPAutowired;
-import com.example.web.annotation.GPController;
-import com.example.web.annotation.GPRequestMapping;
-import com.example.web.annotation.GPRequestParam;
 
 @GPController
 @GPRequestMapping("/demo")

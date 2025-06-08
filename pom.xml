@@ -8,10 +8,10 @@
 
     <groupId>com.example</groupId>
     <artifactId>demo</artifactId>
-    <version>0.0.3-SNAPSHOT</version>
+    <version>0.1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>demo</name>
+    <name>minispring</name>
     <description>Toy-level self-made Spring alternative</description>
 
     <properties>
@@ -87,7 +87,7 @@
                             <createDependencyReducedPom>false</createDependencyReducedPom>
                             <transformers>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>com.example.demo.Application</mainClass>
+                                    <mainClass>com.minispring.demo.Application</mainClass>
                                 </transformer>
                             </transformers>
                             <filters>
@@ -119,7 +119,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <mainClass>com.example.demo.Application</mainClass>
+                    <mainClass>com.minispring.demo.Application</mainClass>
                 </configuration>
             </plugin>
         </plugins>
