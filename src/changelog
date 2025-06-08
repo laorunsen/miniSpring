@@ -7,7 +7,7 @@ change：implement boot module
 change：build a toy spring mvc
         replace HelloServlet.java by GPDispatcherServlet.java
 test with: http://localhost:8080/demo/query?name=tom
-           http://localhost:8080/demo/add?a=10&b=21
+           http://localhost:8080/demo/add?a=10&b=20
 
 
 ### Version 0.0.2

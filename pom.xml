@@ -119,7 +119,8 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <mainClass>com.minispring.demo.Application</mainClass>
+                     <!-- 先hardcode , 将来再做个类似@SpringBootApplication 自动注入mainclass和scakpakage -->
+                    <mainClass>com.minispring.demo.DemoApplication</mainClass>
                 </configuration>
             </plugin>
         </plugins>
