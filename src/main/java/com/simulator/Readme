@@ -1,0 +1,6 @@
+是的， windowns下面跑代码， 跑测试， 不想装db、redis、postgresql
+搞个简单版本的simulator， 用来学习一下java代码的各种写法
+比单纯刷leetcode好一点点
+
+redis， 用netty和hashmap来做
+kfaka和pg， 没想好！！！
